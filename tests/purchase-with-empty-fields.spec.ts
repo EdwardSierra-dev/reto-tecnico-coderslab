@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test';
 test ('checkout with empty fields', async ({ page }) => {
 
   const data = ['standard_user','secret_sauce'];
-  const checkoutData = ['Edward', 'Sierra', '080001'];
 
   // go to the website
   await page.goto('https://saucedemo.com');
@@ -31,7 +30,7 @@ test ('checkout with empty fields', async ({ page }) => {
   
   // continue without information
   await page.getByRole('button', {name: 'Continue'}).click();
-  await expect(page.getByText('Error: First Name is required')).toBeVisible();
+  await expect(page.getByText('Error: All Fields are required')).toBeVisible();
   
   //await page.pause();
 });
